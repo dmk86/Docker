@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
         db:
+          container_name: wordpress_db
           image: mariadb
           volumes:
                   - ./db:/var/lib/mysql
@@ -13,6 +14,7 @@ services:
                   MYSQL_PASSWORD: wordpres_pass
 
         wordpress:
+          container_name: wordpress
           links:
                   - db:mysql
           image: wordpress:latest
@@ -28,6 +30,7 @@ services:
                   - ./wp-content:/var/www/html/wp-content
                   - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         phpmyadmin:
+          container_name: wordpress_phpmyadmin
           links:
                   - db:mysql
           image: phpmyadmin/phpmyadmin
