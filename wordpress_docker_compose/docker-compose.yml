@@ -39,6 +39,8 @@ services:
                   - 8091:80
           environment:
                   PMA_HOST: db
+                  PMA_USER: wordpress
+                  PMA_PASSWORD: wordpress_pass
                   MYSQL_ROOT_PASSWORD: wordpressRoot_dbPass
                 
 volumes:
